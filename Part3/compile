@@ -1,0 +1,6 @@
+rm -f output.txt
+flex scanner.l
+yacc -d parser.y
+cc ast.c scope.c -o out y.tab.c -ll -Ly
+./out < project.t
+./out < project.t -b -i -n1 >>output.txt
